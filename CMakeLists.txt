@@ -20,13 +20,9 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # ---- Library (utils) ----
-add_library(utils
-    utils/mathutils.cc
-)
-
-target_include_directories(utils PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils
-)
+file(GLOB UTILS_SOURCES "utils/*.cc")
+add_library(utils ${UTILS_SOURCES})
+target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/utils)
 
 # ---- Main program (optional, for future) ----
 add_executable(main main.cc)
