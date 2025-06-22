@@ -6,3 +6,6 @@ Animal::Animal(std::string name, int age)
 const std::string& Animal::getName() const noexcept {
     return name;
 }
+void Animal::setName(const std::string& name){
+    this->name = name;
+}
