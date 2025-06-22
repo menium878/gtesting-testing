@@ -20,12 +20,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # ---- Library (utils) ----
-file(GLOB UTILS_SOURCES "utils/*.cc")
+file(GLOB UTILS_SOURCES "src/utils/*.cc")
 add_library(utils ${UTILS_SOURCES})
-target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/utils)
+target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/utils)
 
 # ---- Main program (optional, for future) ----
-add_executable(main main.cc)
+add_executable(main src/main.cc)
 target_link_libraries(main PRIVATE utils)
 
 # ---- Tests ----
